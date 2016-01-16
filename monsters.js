@@ -98,4 +98,6 @@ function getStrengths() {
 	return strengths;
 }
 
-
+function makeMonster() {
+	
+}
