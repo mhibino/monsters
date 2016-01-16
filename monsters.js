@@ -41,17 +41,17 @@ function randomBoolean(percentage) {
 	}
 }
 
-function toHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-}
-
-function rgbToHex(r, g, b) {
-    return "#" + toHex(r) + toHex(g) + toHex(b);
-}
-
 // need to output to RGB
 function getSkin() {
+	function toHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+	}
+
+	function rgbToHex(r, g, b) {
+	    return "#" + toHex(r) + toHex(g) + toHex(b);
+	}
+
 	var r = Math.floor(Math.random() * 255);
 	var g = Math.floor(Math.random() * 255);
 	var b = Math.floor(Math.random() * 255);
@@ -60,9 +60,9 @@ function getSkin() {
 
 
 function getEye() {
-	var eye = ["blue", "brown", "green", "red", "black"];
+	var eyeOptions = ["blue", "brown", "green", "red", "black"];
 	var index = Math.floor(Math.random() * 5);
-	return eye[index];
+	return eyeOptions[index];
 }
 
 function getHeight()
@@ -86,7 +86,16 @@ function getWings() {
 	return randomBoolean(10); // changed from 40
 }
 
-function getStrengths()
-
+function getStrengths() {
+	var strengthOptions = ["venom", "immunity", "fire", "armor", "vision", "swim"];
+	var strengths = [];
+	var strengthOne = Math.floor(Math.random() * 6);
+	var strengthTwo	= strengthOne
+	while (strengthTwo === strengthOne) {
+		strengthTwo	= Math.floor(Math.random() * 6);
+	}
+	strengths.push(strengthOptions[strengthOne], strengthOptions[strengthTwo]);
+	return strengths;
+}
 
 
